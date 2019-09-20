@@ -14,8 +14,10 @@ int main(void)
 	{
 		putchar(m);
 		if (m != '9')
+		{
 			putchar(44);
 			putchar(32);
+		}
 		m++;
 	}
 
