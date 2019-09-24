@@ -1,19 +1,11 @@
-#include<stdio.h>
 #include"holberton.h"
-
 /**
  *times_table - prints the 9 times table
- *
- *
  *Return: void
  */
 void times_table(void)
 {
-	int n;
-	int m;
-	int l;
-	int o;
-	int p;
+	int n, m, l, o, p;
 
 	for (n = 0; n <= 9; n++)
 	{
