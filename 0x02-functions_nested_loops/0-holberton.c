@@ -1,4 +1,3 @@
-#include<stdio.h>
 #include"holberton.h"
 /**
  *Main-Prints an string
