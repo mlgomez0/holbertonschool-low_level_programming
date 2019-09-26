@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- *print_number - determine if a given integer is a digit
+ *print_numbers - determine if a given integer is a digit
  *
  *Return:print numbers from 0 to 9
  */
