@@ -2,25 +2,30 @@
 #include <stdio.h>
 
 /**
- *rev_string - modifies a given string in reverse order
- *@s:string to be evaluated
+ *puts_half - print the last half of characters in a string
+ *@str:string to be evaluated
  *Return:An string of character
  */
-void rev_string(char *s)
+void puts_half(char *str)
 {
-	int i, j, m, l, max;
+	int i, j, n;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
 		i++;
 	}
-	max = i - 1;
-	for (j = max; j > (max / 2); j--)
+	if (i % 2 == 0)
 	{
-		l = max - j;
-		m = s[j];
-		s[j] = s[l];
-		s[l] = m;
+		n = i / 2;
 	}
+	else
+	{
+		n = (i - 1) / 2;
+	}
+	for (j = n; j < i; j++)
+	{
+		_putchar(str[j]);
+	}
+	_putchar('\n');
 }
