@@ -16,7 +16,7 @@ void rev_string(char *s)
 		i++;
 	}
 	max = i - 1;
-	for (j = max; j >= 0; j--)
+	for (j = max; j >= (max / 2); j--)
 	{
 		l = max - j;
 		m = s[j];
