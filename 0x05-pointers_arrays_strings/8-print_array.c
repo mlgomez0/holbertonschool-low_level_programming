@@ -1,6 +1,4 @@
-#include "holberton.h"
 #include <stdio.h>
-
 /**
  *print_array - print any given array
  *@a:array to be evaluated
