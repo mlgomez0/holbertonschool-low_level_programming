@@ -4,6 +4,7 @@
  *_strncat - concatenates two strings until n character
  *@dest: destination string
  *@src: Origin string
+ *@n: number to stop the concatenation
  *Return: char string
  */
 
