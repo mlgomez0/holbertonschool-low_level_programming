@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- *_reverse_array - reverse the order of a array
+ *reverse_array - reverse the order of a array
  *@a:array no invert
  *@n:size of string
  *Return: void
