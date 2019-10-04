@@ -19,7 +19,7 @@ char *cap_string(char *s)
 	j = 0;
 	while (j < i)
 	{
-		if (j == 0 && s[j] >= 'a' && s[j] >= 'z')
+		if (j == 0 && s[j] >= 'a' && s[j] <= 'z')
 		{
 			s[j] = s[j] - 32;
 		}
