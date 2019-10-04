@@ -15,6 +15,10 @@ char *cap_string(char *s)
 	{
 		i++;
 	}
+	if (s[0] >= 'a' && s[0] >= 'z')
+	{
+		s[0] = s[0] - 32;
+	}
 	j = 0;
 	while (j < i)
 	{
