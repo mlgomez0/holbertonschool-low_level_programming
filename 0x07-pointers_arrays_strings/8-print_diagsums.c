@@ -14,20 +14,17 @@ void print_diagsums(int *a, int size)
 	int j;
 	int l;
 	int k;
-	int n;
 
 	l = 0;
 	k = 0;
-	n = size * size;
-	for (i = 0; i < n; i = i + size + 1)
+	for (i = 0; i < size; i++)
 	{
-		l = l + *(a + i);
+		l = l + a[(size + 1) * i];
 	}
 	printf("%d, ", l);
-	size = size - 1;
-	for (j = size; j < n; j = j + size)
+	for (j = 0; j < size; j++)
 	{
-		k = k + *(a + j);
+		k = k + a[(size - 1) * (j + 1)];
 	}
 	printf("%d\n", k);
 }
