@@ -9,7 +9,12 @@ int _sqrt_recursion(int n)
 {
 	return (_value_recu(n, 1));
 }
-
+/**
+ *_value_recu - makes recursion to find the square root
+ *@x:value to be evaluated
+ *@a:integer to make interation
+ *Return: integer
+ */
 int _value_recu(int x, int a)
 {
 
