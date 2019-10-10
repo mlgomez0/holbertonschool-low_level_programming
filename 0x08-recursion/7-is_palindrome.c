@@ -34,7 +34,10 @@ int _value_palin(char *s, int a)
 	int m;
 
 	m = sizestr(s) - 1;
-
+	if (s[a] == '\0')
+	{
+		return (0);
+	}
 	if (s[m - a] != s[a])
 	{
 		return (0);
