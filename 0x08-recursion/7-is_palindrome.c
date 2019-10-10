@@ -2,29 +2,47 @@
 
 /**
  *is_palindrome - evaluate if a string is palindrome
- *@n:value to be evaluated
+ *@s:value to be evaluated
  *Return: integer
  */
 int is_palindrome(char *s)
 {
-	return (_value_palin(n, 2));
+	return (_value_palin(s, 0));
 }
 /**
- *_value_palin - makes recursion to find out if number is prime
- *@x:value to be evaluated
+ *sizestr - calculate the size of a stringe
+ *@s:string to be evaluated
+ *Return: integer
+ */
+int sizestr(char *s)
+{
+	if (*s == '\0')
+	{
+		return (0);
+	}
+	return (1 + sizestr(s + 1));
+}
+/**
+ *_value_palin - makes recursion to find out the char is palindrome
+ *@s:value to be evaluated
  *@a:integer to make interation
  *Return: integer
  */
-int _value_palin(int x, int a)
+
+int _value_palin(char *s, int a)
 {
+	int m;
 
-	if (x <= 1)
-		return (0);
-	if ((x % a == 0) && a < x)
-		return (0);
+	m = sizestr(s) - 1;
 
-	if (a == x)
+	if (s[m - a] != s[a])
+	{
+		return (0);
+	}
+	else
+	{
+
+		_value_palin(s, a + 1);
 		return (1);
-
-	return (_value_prime(x, (a + 1)));
+	}
 }

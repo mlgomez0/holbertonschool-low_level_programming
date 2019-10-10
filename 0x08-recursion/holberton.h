@@ -9,3 +9,5 @@ int _value_recu(int n, int a);
 int is_prime_number(int n);
 int _value_prime(int x, int a);
 int is_palindrome(char *s);
+int sizestr(char *s);
+int _value_palin(char *s, int a);
