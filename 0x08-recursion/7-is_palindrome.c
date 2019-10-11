@@ -34,13 +34,12 @@ int _value_palin(char *s, int a)
 	int m;
 
 	m = sizestr(s) - 1;
-	if (s[m - a] != s[a])
+	if (s[a] != s[m - a])
 	{
 		return (0);
 	}
 	else
 	{
-
 		_value_palin(s, a + 1);
 		return (1);
 	}

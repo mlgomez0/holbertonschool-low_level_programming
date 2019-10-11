@@ -11,3 +11,6 @@ int _value_prime(int x, int a);
 int is_palindrome(char *s);
 int sizestr(char *s);
 int _value_palin(char *s, int a);
+int wildcmp(char *s1, char *s2);
+int second_val(char *s1, char *s2, int m, int k, int i, int j);
+int _first_eval(char *s1, char *s2, int m);
