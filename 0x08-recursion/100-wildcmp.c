@@ -14,11 +14,11 @@ int wildcmp(char *s1, char *s2)
 
 	m = sizestr(s1) - 1;
 	k = sizestr(s2) - 1;
-	l = _first_eval(s1, s2, m);
+	l = _first_eval(s1, s2, m, k);
 	if (l == 2)
-		return (1);
-	if (l == 1)
 		return (0);
+	if (l == 1)
+		return (1);
 	return (second_val(s1, s2, m, k, 0, 0));
 }
 /**
@@ -39,21 +39,22 @@ int sizestr(char *s)
  *@s1:string to be evaluated
  *@s2:string to be evaluated
  *@m: size of one string
+ *@k: size of string
  *Return: integer
  */
 
-int _first_eval(char *s1, char *s2, int m)
+int _first_eval(char *s1, char *s2, int m, int k)
 {
 
-	if (s2[m] == '*')
+	if (s2[k] == '*')
 		return (0);
-	if (s1[m] != s2[m])
+
+	if (s1[m] != s2[k])
+		return (2);
+	if (m == k && k == 0)
 		return (1);
-
-	if (s1[m] == s2[m] && m >= 0)
-		_first_eval(s1, s2, m - 1);
-
-	return (2);
+	_first_eval(s1, s2, m - 1, k - 1);
+	return (1);
 }
 /**
  *second_val - compared two strings with the * character
