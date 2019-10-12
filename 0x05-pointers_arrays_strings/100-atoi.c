@@ -11,20 +11,13 @@ int _atoi(char *s)
 	int i, j, m;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (s[i] != '\0')
 	{
 		i++;
 	}
-	for (j = 0; j <= i; j++)
+	for (j = 0; j < i; j++)
 	{
-		if (s[j] == '0')
-		{
-			return (0);
-		}
-		else if ((s[j] <= '9' && s[j] >= '0') || (s[j] == '-'))
-		{
-			m = write(1, &(s + j), 1);
-		}
+		m = m * 10 + (s[j] + '0');
 	}
 	return (m);
 }
