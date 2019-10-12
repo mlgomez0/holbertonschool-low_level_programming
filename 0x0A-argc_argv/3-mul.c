@@ -1,11 +1,11 @@
 #include <stdio.h>
 /**
- * main - prints the argument it receives
- *@argc: number of arguments
+ * main - multiplies two arguments
+ *@argc: number of argumens
  *@argv: array
  *Return:an integer
  */
-int main(int argc, char *argv[])
+int main(int argc, __attribute__((unused)) char *argv[])
 {
 	int i;
 
