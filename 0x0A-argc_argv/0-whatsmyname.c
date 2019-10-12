@@ -3,9 +3,10 @@
  * main - say the name
  *@argc: not used
  *@argv: array
- *Return : an integer
+ *Return:an integer
  */
-int main(__attribute__((unused)) int argc, argv)
+int main(__attribute__((unused)) int argc, char *argv[])
 {
 	printf("%s\n", argv[0]);
+	return (0);
 }
