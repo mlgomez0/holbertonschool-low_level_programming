@@ -2,13 +2,13 @@
 #include<stdlib.h>
 
 /**
- *create_array - creates an array of specified size and initialized with specified char
+ *create_array - creates an array of specified size
  *@size: size of the array
  *@c: char to initiate the array
- *return:a pointer to the array
+ *Return:a pointer to the array
  */
 
- char *create_array(unsigned int size, char c)
+char *create_array(unsigned int size, char c)
 {
 	unsigned int i;
 	char *t;
