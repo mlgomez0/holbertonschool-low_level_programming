@@ -21,7 +21,7 @@ char *argstostr(int ac, char **av)
 	{
 		for (k = 0; av[j][k]; k++)
 		{
-			elem = elem + k;
+			elem = elem + 1;
 		}
 		elem = elem + 1;
 
