@@ -5,6 +5,7 @@
  *_realloc - reallocates a memory block
  *@ptr:string to be reallocated
  *@old_size:the old size to be updated
+ *@new_size: new size of the array
   *Return:A pointer to the string with new space in memory
  */
 
