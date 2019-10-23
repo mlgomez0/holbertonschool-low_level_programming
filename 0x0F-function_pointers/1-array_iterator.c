@@ -2,7 +2,7 @@
 #include"function_pointers.h"
 
 /**
- *array_iterator - receives poiner to a function and itetate an array to  given arguments
+ *array_iterator - itetate an array to  give argument to function
  *@array:array to interate over
  *@size:size of the array
  *@action:pointer to a function
