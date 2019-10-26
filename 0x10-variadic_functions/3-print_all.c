@@ -19,26 +19,23 @@ void print_all(const char * const format, ...)
 		};
 	va_list list;
 	int i = 0, j = 0;
+	char *a;
 	void (*final)(va_list);
 
+	a = "";
 	va_start(list, format);
 	while (format[i])
 	{
+		printf("%s", a);
+		a = "";
+
 		while (j < 4)
 		{
 			if (format[i] == type[j].let)
 			{
+				a = ", ";
 				final = type[j].fun;
 				final(list);
-				switch (j)
-				{
-					case 3:
-					break;
-
-					default:
-						printf(", ");
-				}
-
 			}
 			j++;
 		}
@@ -50,29 +47,45 @@ void print_all(const char * const format, ...)
 	va_end(list);
 }
 
+/**
+ *print_char - prints a given char
+ *@list:char to be printed
+ */
+
 void print_char(va_list list)
 {
 	printf("%c", va_arg(list, int));
 }
+/**
+ *print_int - prints a given integer
+ *@list:int to be printed
+ */
 void print_int(va_list list)
 {
 	printf("%i", va_arg(list, int));
 }
+/**
+ *print_float - prints a given float
+ *@list:float to be printed
+ */
 void print_float(va_list list)
 {
 	printf("%f", va_arg(list, double));
 }
+/**
+ *print_str - prints a given str
+ *@list:string to be printed
+ */
 void print_str(va_list list)
 {
 	char *l;
 
 	l = va_arg(list, char *);
-	/*printf("%s", l);*/
 
 	if (l != NULL)
 	{
 		printf("%s", l);
 		return;
 	}
-	printf("nil\n");
+	printf("(nil)");
 }
