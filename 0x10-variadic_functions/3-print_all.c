@@ -26,6 +26,7 @@ void print_all(const char * const format, ...)
 		{
 			case 1:
 				printf(", ");
+				break;
 		}
 		a = 0;
 
