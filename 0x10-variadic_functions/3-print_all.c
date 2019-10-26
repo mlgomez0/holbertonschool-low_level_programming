@@ -2,7 +2,6 @@
 #include<stdarg.h>
 #include "variadic_functions.h"
 
-
 /**
  *print_all - prints any type of element passed
  *@format: list that gives the format of each
@@ -10,15 +9,14 @@
 
 void print_all(const char * const format, ...)
 {
-
 	select type[] = {
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
 		{'s', print_str}
 		};
-	va_list list;
 	int i = 0, j = 0, a = 0;
+	va_list list;
 	void (*final)(va_list);
 
 	va_start(list, format);
