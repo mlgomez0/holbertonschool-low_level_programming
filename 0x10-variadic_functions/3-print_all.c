@@ -6,7 +6,7 @@
  */
 void print_all(const char * const format, ...)
 {
-	select type[] = {
+	om_t hps[] = {
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
@@ -28,10 +28,10 @@ void print_all(const char * const format, ...)
 
 		while (j < 4)
 		{
-			if (format[i] == type[j].let)
+			if (format[i] == hps[j].let)
 			{
 				a = 1;
-				type[j].fun(list);
+				hps[j].fun(list);
 			}
 			j++;
 		}

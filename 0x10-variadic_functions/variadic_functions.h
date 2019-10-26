@@ -5,18 +5,18 @@
 #include<stdarg.h>
 
 /**
- * struct type - Struct type
+ * struct ops - Struct type
  *
  * @let: char to be evaluated
  * @fun: The function associated
  */
 
 
-typedef struct type
+typedef struct ops
 {
-		char let;
-			void (*fun)(va_list);
-} select;
+	char let;
+	void (*fun)(va_list);
+} om_t;
 
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);
