@@ -9,15 +9,15 @@
 
 void print_all(const char * const format, ...)
 {
+	int i = 0, j = 0, a = 0;
+	va_list list;
+
 	select type[] = {
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
 		{'s', print_str}
-		};
-	int i = 0, j = 0, a = 0;
-	va_list list;
-	void (*final)(va_list);
+	};
 
 	va_start(list, format);
 	while (format[i])
@@ -35,8 +35,7 @@ void print_all(const char * const format, ...)
 			if (format[i] == type[j].let)
 			{
 				a = 1;
-				final = type[j].fun;
-				final(list);
+				type[j].fun(list);
 			}
 			j++;
 		}
