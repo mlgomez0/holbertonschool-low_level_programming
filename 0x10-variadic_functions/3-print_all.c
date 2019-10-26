@@ -3,52 +3,6 @@
 #include "variadic_functions.h"
 
 /**
- *print_all - prints any type of element passed
- *@format: list that gives the format of each
- */
-
-void print_all(const char * const format, ...)
-{
-
-	select type[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_str}
-	};
-
-	int i = 0, j = 0, a = 0;
-	va_list list;
-
-	va_start(list, format);
-	while (format[i])
-	{
-		switch (a)
-		{
-			case 1:
-				printf(", ");
-				break;
-		}
-		a = 0;
-
-		while (j < 4)
-		{
-			if (format[i] == type[j].let)
-			{
-				a = 1;
-				type[j].fun(list);
-			}
-			j++;
-		}
-		j = 0;
-		i++;
-
-	}
-	printf("\n");
-	va_end(list);
-}
-
-/**
  *print_char - prints a given char
  *@list:char to be printed
  */
@@ -89,4 +43,48 @@ void print_str(va_list list)
 		return;
 	}
 	printf("(nil)");
+}
+
+/**
+ *print_all - prints any type of element passed
+ *@format: list that gives the format of each
+ */
+
+void print_all(const char * const format, ...)
+{
+	select type[] = {
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_str}
+	};
+
+	int i = 0, j = 0, a = 0;
+	va_list list;
+
+	va_start(list, format);
+	while (format[i])
+	{
+		switch (a)
+		{
+			case 1:
+				printf(", ");
+				break;
+		}
+		a = 0;
+
+		while (j < 4)
+		{
+			if (format[i] == type[j].let)
+			{
+				a = 1;
+				type[j].fun(list);
+			}
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	printf("\n");
+	va_end(list);
 }
