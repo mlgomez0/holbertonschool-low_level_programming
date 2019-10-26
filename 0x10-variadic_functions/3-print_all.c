@@ -9,8 +9,6 @@
 
 void print_all(const char * const format, ...)
 {
-	int i = 0, j = 0, a = 0;
-	va_list list;
 
 	select type[] = {
 		{'c', print_char},
@@ -18,6 +16,9 @@ void print_all(const char * const format, ...)
 		{'f', print_float},
 		{'s', print_str}
 	};
+
+	int i = 0, j = 0, a = 0;
+	va_list list;
 
 	va_start(list, format);
 	while (format[i])
