@@ -9,6 +9,5 @@
 int main(void)
 {
     print_all("ceis", 'H', 0, "lberton");
-    print_all("ceisss", 'H', 0, "lberton", "mary", NULL);
     return (0);
 }

@@ -18,22 +18,24 @@ void print_all(const char * const format, ...)
 		{'s', print_str}
 		};
 	va_list list;
-	int i = 0, j = 0;
-	char *a;
+	int i = 0, j = 0, a = 0;
 	void (*final)(va_list);
 
-	a = "";
 	va_start(list, format);
 	while (format[i])
 	{
-		printf("%s", a);
-		a = "";
+		switch (a)
+		{
+			case 1:
+				printf(", ");
+		}
+		a = 0;
 
 		while (j < 4)
 		{
 			if (format[i] == type[j].let)
 			{
-				a = ", ";
+				a = 1;
 				final = type[j].fun;
 				final(list);
 			}
