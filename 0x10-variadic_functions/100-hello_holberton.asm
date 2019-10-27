@@ -1,16 +1,19 @@
-section .data
-	pointer db "Hello, Holberton",10
+section .rodata
+	puntero:	db "Hello, Holberton", 10
+	punterolen: equ $-puntero
+
 section .text
-	global _start
+	global main
 
-_start:
-	mov rax, 1
-	mov rdi, 1
-	mov rsi, pointer
-	mov rdx, 17
-	syscall
+	main:
+		; write(1, msg, msglen)
+		mov rax, 1
+		mov rdi, 1
+		mov rsi, puntero
+		mov rdx, punterolen
+		syscall
+		; return 0
 
-	mov rax, 60
-	mov rdi, 0
-	syscall
+		mov rax, 0
+		ret
 
