@@ -6,7 +6,6 @@
  *print_list - prints a given singly linked list
  *@h: head of the singly linked list
  *Return: the number of nodes of the list
-
  */
 
 size_t print_list(const list_t *h)
