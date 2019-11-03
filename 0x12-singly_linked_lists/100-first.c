@@ -1,9 +1,9 @@
 #include <stdio.h>
+void print_first(void) __attribute__ ((constructor));
+
 /**
  *print_first - this function is called before main
  */
-
-void print_first(void) __attribute__ ((constructor));
 
 void print_first(void)
 {
