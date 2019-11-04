@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 /**
- *free_listint - free the memory space in a linked list
+ *free_listint2 - free the memory space in a linked list
  *@head: head of the linked list
  */
 
