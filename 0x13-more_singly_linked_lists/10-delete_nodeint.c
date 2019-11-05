@@ -13,31 +13,35 @@
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 
-	listint_t *tmp;
-	listint_t *tmpd;
-	listint_t *tmpa;
-	listint_t *new_node;
+	listint_t *tmp, *tmpd, *tmpa;
 	unsigned int i;
+	int l;
 
 	i = 0;
+	l = -1;
 	tmp = *head;
-
 	while (tmp != NULL)
 	{
-
-		if (i == idx)
+		tmpd = tmp->next;
+		if (i == index && i == 0)
+		{
+			tmp->next = NULL;
+			*head = tmpd;
+			free(tmp);
+			l = 1;
+			return (l);
+		}
+		else if (i == index)
 		{
 			tmpa->next = tmp->next;
-			new_node->next = tmp;
-			return (*head);
+			tmp->next = NULL;
+			free(tmp);
+			l = 1;
+			return (l);
 		}
 		tmpa = tmp;
-		tmpd = tmp->next;
-		tmp  = tmpd;
+		tmp = tmpd;
 		i++;
-
-
 	}
-
-	return (NULL);
+	return (l);
 }
