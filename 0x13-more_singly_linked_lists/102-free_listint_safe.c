@@ -22,7 +22,7 @@ size_t free_listint_safe(listint_t **h)
 	{
 		if ((*h)->next >= *h)
 		{
-			h = NULL;
+			*h = NULL;
 			return (i + 1);
 		}
 		tmp = (*h)->next;
@@ -30,6 +30,6 @@ size_t free_listint_safe(listint_t **h)
 		*h  = tmp;
 		i++;
 	}
-	h = NULL;
+	*h = NULL;
 	return (i);
 }
