@@ -7,11 +7,12 @@
  *@head: head of the singly linked list
  *Return: the number of nodes of the list
  */
-
 size_t print_listint_safe(const listint_t *head)
 {
 	int i = 0;
 
+	if (head == NULL)
+		exit(98);
 	while (head != NULL)
 	{
 		printf("[%p] %d\n", (void *)head, head->n);
