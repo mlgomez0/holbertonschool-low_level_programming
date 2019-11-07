@@ -5,6 +5,7 @@
  *get_bit - get the bit in a given index
  *@n:unsigned int to be evaluated
  *@index:index to evalute
+ *Return: bit in the index or -1 if fails
  */
 
 
