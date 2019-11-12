@@ -8,9 +8,10 @@
 #include <string.h>
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ * main - copy a file into another file.
+ *@ac: number of arguments
+ *@av: array of arguments
+ *Return: Always 0.
  */
 int main(int ac, char **av)
 {
@@ -25,27 +26,21 @@ int main(int ac, char **av)
 }
 
 /**
- *create_file - create files and copy text
- *@filename: name of the file to be created
- *@text_content: text to be witten in file
- *Return: 1 on success and -1 on failure
+ *copy_file - copies a file into other
+ *@file_from:origin file
+ *@file_to:destination file
+ *Return: 0
  */
 int copy_file(const char *file_from, const char *file_to)
 {
 	int fdf, fdt;
 	ssize_t whatwrote, whatread;
-	char * buf[1024];
+	char *buf[1024];
 
-	if (file_from == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
 	fdf = open(file_from, O_RDONLY);
-	if (fdf == -1)
+	if (file_from == NULL || fdf == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(98);
 	}
 	fdt = open(file_to, O_CREAT | O_RDWR | O_TRUNC, 0664);
@@ -74,5 +69,5 @@ int copy_file(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fdt);
 		exit(100);
 	}
-	return (1);
+	return (0);
 }
