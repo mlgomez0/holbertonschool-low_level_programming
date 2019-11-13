@@ -31,7 +31,7 @@ int main(int ac, char **av)
  *@file_to:destination file
  *Return: 0
  */
-int copy_file(const char *file_from, const char *file_to)
+void copy_file(const char *file_from, const char *file_to)
 {
 	int fdf, fdt;
 	ssize_t whatwrote, whatread;
@@ -63,5 +63,4 @@ int copy_file(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fdt);
 		exit(100);
 	}
-	return (0);
 }
