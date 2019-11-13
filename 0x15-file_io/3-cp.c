@@ -38,11 +38,6 @@ int copy_file(const char *file_from, const char *file_to)
 	char *buf[1024];
 
 	fdf = open(file_from, O_RDONLY);
-	if (file_from == NULL || fdf == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
 	fdt = open(file_to, O_CREAT | O_RDWR | O_TRUNC, 0664);
 	while ((whatread = read(fdf, buf, 1024)) > 0)
 	{
@@ -53,7 +48,7 @@ int copy_file(const char *file_from, const char *file_to)
 			exit(99);
 		}
 	}
-	if (whatread == -1)
+	if (whatread == -1 || fdf == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
