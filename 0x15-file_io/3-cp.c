@@ -52,7 +52,7 @@ int copy_file(const char *file_from, const char *file_to)
 	while ((whatread = read(fdf, buf, 1024)) > 0)
 	{
 		whatwrote = write(fdt, buf, whatread);
-		if (whatwrote == -1)
+		if (whatwrote != whatread)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
