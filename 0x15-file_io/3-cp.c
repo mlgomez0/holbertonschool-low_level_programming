@@ -34,15 +34,14 @@ int main(int ac, char **av)
 void copy_file(const char *file_from, const char *file_to)
 {
 	int fdf, fdt;
-	ssize_t whatwrote, whatread;
+	ssize_t whatread;
 	char *buf[1024];
 
 	fdf = open(file_from, O_RDONLY);
 	fdt = open(file_to, O_CREAT | O_RDWR | O_TRUNC, 0664);
 	while ((whatread = read(fdf, buf, 1024)) > 0)
 	{
-		whatwrote = write(fdt, buf, whatread);
-		if (whatwrote != whatread || fdt == -1)
+		if (write(fdt, buf, whatread) != whatread || fdt == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
