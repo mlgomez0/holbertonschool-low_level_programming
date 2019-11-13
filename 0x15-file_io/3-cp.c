@@ -44,19 +44,19 @@ int copy_file(const char *file_from, const char *file_to)
 		exit(98);
 	}
 	fdt = open(file_to, O_CREAT | O_RDWR | O_TRUNC, 0664);
-	if (fdt == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
 	while ((whatread = read(fdf, buf, 1024)) > 0)
 	{
 		whatwrote = write(fdt, buf, whatread);
-		if (whatwrote != whatread)
+		if (whatwrote != whatread || fdt == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
+	}
+	if (whatread == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
 	}
 	if (close(fdf) == -1)
 	{
