@@ -31,32 +31,26 @@ int main(int ac, char **av)
  *@file_to:destination file
  *Return: 0
  */
-int copy_file(const char *file_from, const char *file_to)
+void copy_file(const char *file_from, const char *file_to)
 {
 	int fdf, fdt;
-	ssize_t whatwrote, whatread;
+	ssize_t whatread;
 	char *buf[1024];
 
 	fdf = open(file_from, O_RDONLY);
-	if (file_from == NULL || fdf == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-	fdt = open(file_to, O_CREAT | O_RDWR | O_TRUNC, 0664);
-	if (fdt == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
+	fdt = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	while ((whatread = read(fdf, buf, 1024)) > 0)
 	{
-		whatwrote = write(fdt, buf, whatread);
-		if (whatwrote == -1)
+		if (write(fdt, buf, whatread) != whatread || fdt == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
+	}
+	if (whatread == -1 || fdf == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
 	}
 	if (close(fdf) == -1)
 	{
@@ -68,5 +62,4 @@ int copy_file(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fdt);
 		exit(100);
 	}
-	return (0);
 }
