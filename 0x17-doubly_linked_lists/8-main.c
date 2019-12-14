@@ -24,11 +24,7 @@ int main(void)
     print_dlistint(head);
     print_inv(head);
     printf("-----------------\n");
-    delete_dnodeint_at_index(&head, 8);
-    print_dlistint(head);
-    print_inv(head);
-    printf("-----------------\n");
-/*    delete_dnodeint_at_index(&head, 0);
+    delete_dnodeint_at_index(&head, 5);
     print_dlistint(head);
     print_inv(head);
     printf("-----------------\n");
@@ -53,6 +49,10 @@ int main(void)
     print_inv(head);
     printf("-----------------\n");
     delete_dnodeint_at_index(&head, 0);
+    print_dlistint(head);
+    print_inv(head);
+    printf("-----------------\n");
+    delete_dnodeint_at_index(&head, 0);
     printf("-----------------\n");
     delete_dnodeint_at_index(&head, 0);
     printf("-----------------\n");
@@ -72,6 +72,6 @@ int main(void)
     printf("-----------------\n");
     delete_dnodeint_at_index(&head, 0);
     print_dlistint(head);
-    print_inv(head);*/
+    print_inv(head);
     return (0);
 }
