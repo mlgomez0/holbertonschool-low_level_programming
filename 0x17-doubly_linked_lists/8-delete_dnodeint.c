@@ -9,44 +9,62 @@
 
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *temp = *head, *temp2, *temp1;
-	unsigned int i = 0;
+	dlistint_t *temp = *head, *temp2;
+	unsigned int i = 0, len = 0;
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		*head = NULL;
 		return (-1);
 	}
-	while (temp)
+	len = dlistint_len1(*head);
+	if (index > (len - 1))
+		return (-1);
+	if (index == 0)
 	{
-		if (i == 0 && index == 0)
-		{
-			temp2 = temp->next;
-			temp2->prev = NULL;
-			free(temp);
-			*head = temp2;
-			return (1);
-		}
-		else if (i == index && temp->next != NULL)
-		{
-			temp1 = temp->next;
-			temp2 = temp->prev;
-			temp2->next = temp1;
-			temp1->prev = temp2;
-			free(temp);
-			return (1);
-		}
-		else if (i == index && temp->next == NULL)
-		{
-			temp1 = temp->prev;
-			temp->prev = NULL;
-			free(temp);
-			temp1->next = NULL;
-			temp = NULL;
-			return (1);
-		}
+		temp2 = temp->next;
+		temp2->prev = NULL;
+		free(temp);
+		*head = temp2;
+		return (1);
+	}
+	printf("got into if index 7");
+	while (i != index)
+	{
 		temp = temp->next;
 		i++;
 	}
-	return (-1);
+	if (index == (len - 1))
+	{
+		temp->prev->next = NULL;
+		free(temp);
+		temp = NULL;
+		return (1);
+	}
+	temp->prev->next = temp->next;
+	temp->next->prev = temp->prev;
+	temp->prev = NULL;
+	temp->next = NULL;
+	free(temp);
+	temp = NULL;
+	return (1);
+}
+/**
+ *dlistint_len1 - determine the number of elements of a doubly linked list
+ *@h: head of the list to be printed
+ *Return: the number of nodes in the list
+ */
+
+unsigned int dlistint_len1(const dlistint_t *h)
+{
+	unsigned int count = 0;
+
+	if (h == NULL)
+		return (0);
+	while (h)
+	{
+		h = h->next;
+		count++;
+	}
+	return (count);
 }
