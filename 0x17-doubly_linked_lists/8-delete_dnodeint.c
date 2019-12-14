@@ -28,7 +28,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		*head = temp2;
 		return (1);
 	}
-	printf("got into if index 7");
 	while (i != index)
 	{
 		temp = temp->next;
