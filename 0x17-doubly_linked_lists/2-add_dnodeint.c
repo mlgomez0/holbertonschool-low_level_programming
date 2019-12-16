@@ -1,10 +1,10 @@
 #include "lists.h"
 
-
 /**
- *dlistint_len - determine the number of elements of a doubly linked list
- *@h: head of the list to be printed
- *Return: the number of nodes in the list
+ *add_dnodeint - adds a new node to a doubly linked list at the beginning
+ *@head: head of the list to be evaluated
+ *@n:new element of the linked list
+ *Return: the address of the new element
  */
 
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
