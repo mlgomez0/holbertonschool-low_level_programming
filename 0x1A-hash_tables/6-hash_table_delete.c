@@ -42,5 +42,5 @@ void free_list(hash_node_t *head)
 		free(head);
 		head  = temp;
 	}
-	free(head);
+
 }
