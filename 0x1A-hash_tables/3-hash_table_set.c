@@ -37,7 +37,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 hash_node_t *add_node(hash_node_t **head, const char *key, const char *value)
 {
 	hash_node_t *new_node;
+	hash_node_t *temp = NULL;
 
+	temp = *head;
+	while (temp)
+	{
+		if (strcmp(key, temp->key) == 0)
+		{
+			free(temp->value);
+			temp->value = strdup(value);
+			return (*head);
+		}
+		temp = temp->next;
+	}
 	new_node = malloc(sizeof(hash_node_t));
 	if (new_node == NULL)
 		return (NULL);
