@@ -15,7 +15,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int _idx;
 	char *empty_str = "\0";
 
-	if (key == NULL || strcmp(key, empty_str) == 0)
+	if (ht == NULL || key == NULL || strcmp(key, empty_str) == 0)
 		return (0);
 	_idx = key_index((unsigned char *)key, ht->size);
 	node_head = ht->array[_idx];
