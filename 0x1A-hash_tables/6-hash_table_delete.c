@@ -13,7 +13,6 @@ void hash_table_delete(hash_table_t *ht)
 
 	if (ht != NULL)
 	{
-		printf("{");
 		for (i = 0; i < ht->size; i++)
 		{
 			temp = ht->array[i];
