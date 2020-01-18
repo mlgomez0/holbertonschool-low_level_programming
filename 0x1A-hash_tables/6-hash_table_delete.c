@@ -32,15 +32,15 @@ void hash_table_delete(hash_table_t *ht)
 
 void free_list_h(hash_node_t *head)
 {
-	hash_node_t *temp;
+	hash_node_t *tmp;
 
 	while (head != NULL)
 	{
-		temp = head->next;
+		tmp = head->next;
 		free(head->key);
 		free(head->value);
 		free(head);
-		head  = temp;
+		head  = tmp;
 	}
 
 }
