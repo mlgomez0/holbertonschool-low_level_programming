@@ -1,12 +1,9 @@
 #Usage:
 #make  #compile all binary
 
-.PHONY = all SRC CC
+CC = gcc
 
-CC := gcc
-CC := ${CC}
-
-SRC := $(wildcard *.c)
+SRC = $(wildcard *.c)
 
 all: ${SRC}
 	${CC} ${SRC} -o holberton
