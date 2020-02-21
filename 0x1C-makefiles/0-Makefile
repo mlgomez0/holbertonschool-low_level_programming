@@ -1,0 +1,9 @@
+#Usage:
+#make  #compile all binary
+
+.PHONY = all
+
+all: holberton
+
+holberton: holberton.c main.c
+	gcc main.c holberton.c -o holberton
