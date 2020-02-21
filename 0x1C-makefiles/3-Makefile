@@ -24,8 +24,6 @@ clean:
 oclean:
 	${RM} -f ${OBJ}
 
-fclean:
-	${RM} -f *~ ${NAME}
-	${RM} ${OBJ}
+fclean: clean oclean
 
 re: oclean all
