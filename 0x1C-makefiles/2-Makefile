@@ -1,0 +1,17 @@
+#Usage:
+#make  #compile all binary
+
+.PHONY: all
+
+CC = gcc
+
+SRC = main.c holberton.c
+
+NAME = holberton
+
+OBJ = $(SRC:.c=.o)
+
+all: NAME
+
+NAME: ${OBJ}
+	${CC} ${OBJ} -o ${NAME}
