@@ -1,0 +1,31 @@
+#Usage:
+#make  #compile all binary
+
+.PHONY: all, clean, oclean, fclean, re
+
+CC = gcc
+
+SRC = main.c holberton.c
+
+NAME = holberton
+
+OBJ = $(SRC:.c=.o)
+
+RM = rm
+
+all: NAME
+
+NAME: ${OBJ}
+	${CC} ${OBJ} -o ${NAME}
+
+clean:
+	${RM} -f *~ ${NAME}
+
+oclean:
+	${RM} -f ${OBJ}
+
+fclean:
+	${RM} -f *~ ${NAME}
+	${RM} ${OBJ}
+
+re: oclean all
