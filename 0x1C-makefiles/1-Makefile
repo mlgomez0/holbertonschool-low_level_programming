@@ -1,9 +1,10 @@
 #Usage:
 #make  #compile all binary
 
-.PHONY = all
+.PHONY = all SRC CC
 
-CC = gcc
+CC := gcc
+CC := ${CC}
 
 SRC := $(wildcard *.c)
 
