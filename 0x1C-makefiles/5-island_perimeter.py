@@ -1,4 +1,4 @@
-	i/usr/bin/python3
+#!/usr/bin/python3
 """contain fucntion island_perimeter
 """
 
@@ -12,6 +12,6 @@ def island_perimeter(grid):
             for j in i:
                 if j == 1:
                     count = count + 1
-        if count >= 1:
+        if count != 0:
             count = count * 2 + 2
         return count
