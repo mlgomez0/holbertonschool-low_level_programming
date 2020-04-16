@@ -29,17 +29,16 @@ int recursive_search(int *array, int l, int r, int value)
 {
 	int m;
 
-	if (r >= l)
-	{
-		m = l + (r - l) / 2;
-		binary_print(array, l, m);
-		if (value == array[m])
-			return (m);
-		if (array[m] > value)
-			return (recursive_search(array, l, m - 1, value));
+	if (r < l)
+		return (-1);
+	m = (l + r) / 2;
+	if (value < array[m])
+		return (recursive_search(array, l, m - 1, value));
+	else if (array[m] < value)
 		return (recursive_search(array, m + 1, r, value));
-	}
-	return (-1);
+	else
+		return (m);
+
 }
 
 
